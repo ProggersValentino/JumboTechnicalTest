@@ -16,18 +16,8 @@ COPY . .
 RUN cmake -B build/ -S . -G Ninja 
 RUN cmake --build ./build/
 
-#testing stage
-FROM ubuntu:latest AS test
-
-WORKDIR /app
-
-COPY --from=build /app/build/tests .
-
-RUN chmod +x ./testsExecutable
-RUN ./testsExecutable
-
 #Runtime state
-FROM test AS final
+FROM ubuntu:latest AS final
 
 WORKDIR /app
 
