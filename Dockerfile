@@ -24,4 +24,4 @@ WORKDIR /app
 COPY --from=build /app/build/src .
 
 #CMD ["sh", "-c", "./tests/testsExecutable && ./src/mainExecutable"]
-#ENTRYPOINT ["./mainExecutable"]
+ENTRYPOINT ["./mainExecutable"]
